@@ -1,0 +1,407 @@
+<div class="container">
+  <h4 style="color: #4c309b">Renda Fixa</h4>
+
+  <div class="row mt-4">
+    <div class="col-md-2">
+      <div class="card rounded">
+        <div class="card-body py-1 mb-1">
+          <span
+            class="card-title text-break text-uppercase fw-bold"
+            style="color: #777; font-size: 11px"
+            >Renda Fixa</span
+          >
+          <p
+            style="margin-top: -5px; margin-bottom: 0; color: #4c309b"
+            class="card-text fw-bold"
+          >
+            R$ {{ dataFromAPI?.snapshotByPortfolio?.equity }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="card rounded">
+        <div class="card-body py-1 mb-1">
+          <span
+            class="card-title text-break fw-bold"
+            style="color: #777; font-size: 11px"
+            >Valor Aplicado</span
+          >
+          <p
+            style="margin-top: -5px; margin-bottom: 0; color: #4c309b"
+            class="card-text fw-bold"
+          >
+            R$ {{ dataFromAPI?.snapshotByPortfolio?.valueApplied }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="card rounded">
+        <div class="card-body py-1 mb-1">
+          <span
+            class="card-title text-break fw-bold"
+            style="color: #777; font-size: 11px"
+            >Resultado</span
+          >
+          <p
+            style="margin-top: -5px; margin-bottom: 0; color: #4c309b"
+            class="card-text fw-bold"
+          >
+            R$ {{ dataFromAPI?.snapshotByPortfolio?.equityProfit }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="card rounded">
+        <div class="card-body py-1 mb-1">
+          <span
+            class="card-title text-break fw-bold"
+            style="color: #777; font-size: 11px"
+            >Rentabilidade</span
+          >
+          <p
+            style="margin-top: -5px; margin-bottom: 0; color: #4c309b"
+            class="card-text fw-bold"
+          >
+            {{ dataFromAPI?.snapshotByPortfolio?.percentageProfit }}%
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="card rounded">
+        <div class="card-body py-1 mb-1">
+          <span
+            class="card-title text-break fw-bold"
+            style="color: #777; font-size: 11px"
+            >cdi</span
+          >
+          <p
+            style="margin-top: -5px; margin-bottom: 0; color: #4c309b"
+            class="card-text fw-bold"
+          >
+            {{ dataFromAPI?.snapshotByPortfolio?.indexerValue }}%
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="card rounded">
+        <div class="card-body py-1 mb-1">
+          <span
+            class="card-title text-break fw-bold"
+            style="color: #777; font-size: 11px"
+            >% sobre cdi</span
+          >
+          <p
+            style="margin-top: -5px; margin-bottom: 0; color: #4c309b"
+            class="card-text fw-bold"
+          >
+            {{ dataFromAPI?.snapshotByPortfolio?.percentageOverIndexer }}%
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Gráfico de Linhas</h5>
+          <div
+            style="
+              height: 300px;
+              background-color: lightgray;
+              border-radius: 10px;
+            "
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <div class="card">
+          <div
+            class="card-body d-flex justify-content-between align-items-center"
+          >
+            <h5 class="card-title">Minhas Rendas Fixas</h5>
+            <div class="d-flex">
+              <div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
+                <button
+                  type="button"
+                  class="btn btn-outline-primary me-2"
+                  id="dropdownManual"
+                  ngbDropdownAnchor
+                  (focus)="myDrop.open()"
+                >
+                  Ordenar por
+                </button>
+                <div ngbDropdownMenu aria-labelledby="dropdownManual">
+                  <button
+                    ngbDropdownItem
+                    (click)="filterByBondType('Tesouro Direto')"
+                  >
+                    Tesouro Direto
+                  </button>
+                  <button
+                    ngbDropdownItem
+                    (click)="filterByBondType('Renda Fixa Pré')"
+                  >
+                    Renda Fixa Pré
+                  </button>
+                  <button
+                    ngbDropdownItem
+                    (click)="filterByBondType('Renda Fixa Pós')"
+                  >
+                    Renda Fixa Pós
+                  </button>
+                  <button ngbDropdownItem (click)="clearFilter()">
+                    Limpar Filtro
+                  </button>
+                </div>
+              </div>
+
+              <div class="input-group" style="margin-left: 8px">
+                <div class="input-group" style="margin-left: 8px">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Pesquisar..."
+                    aria-label="Pesquisar..."
+                    id="searchInput"
+                    [(ngModel)]="searchTerm"
+                    (ngModelChange)="searchTerm$.next($event)"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row" *ngFor="let product of getPageItems()">
+              <div class="col-md-4 mb-3">
+                <div class="card rounded">
+                  <div class="card-body">
+                    <p class="card-title d-flex align-items-center">
+                      <span style="font-size: 11px">Titulo</span>
+                      <i
+                        class="material-icons"
+                        style="font-size: 18px; margin-left: 15px"
+                        >info_outline</i
+                      >
+                    </p>
+
+                    <div class="row">
+                      <span class="col-md-7" style="font-size: 12px">{{
+                        product.fixedIncome.name
+                      }}</span>
+                      <span
+                        class="col-md-5 text-start"
+                        style="font-size: 12px; text-align: left"
+                        ><span>Classe</span><br /><span
+                          class="fw-bold"
+                          style="color: #a77ecb"
+                          >{{ product.fixedIncome.bondType }}</span
+                        ></span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="card rounded">
+                  <div class="card-body">
+                    <p class="card-title d-flex align-items-center">
+                      <span style="font-size: 11px">Minha posição</span>
+                      <i
+                        class="material-icons"
+                        style="font-size: 18px; margin-left: 15px"
+                        >info_outline</i
+                      >
+                    </p>
+
+                    <div class="row">
+                      <span class="col-md-3" style="font-size: 12px"
+                        ><span>Valor inves.</span><br /><span
+                          class="fw-bold"
+                          style="color: #94dccc"
+                          >{{ product.position.valueApplied }}</span
+                        ></span
+                      >
+                      <span class="col-md-2 px-0" style="font-size: 12px"
+                        ><span>Saldo bruto</span><br /><span
+                          class="fw-bold"
+                          style="color: #94dccc"
+                          >{{ product.position.profitability }}</span
+                        ></span
+                      >
+                      <span class="col-md-2 px-0" style="font-size: 12px"
+                        ><span>rent.</span><br /><span
+                          class="fw-bold"
+                          style="color: #94dccc"
+                          >{{ product.position.portfolioPercentage }}</span
+                        ></span
+                      >
+                      <span class="col-md-2 px-0" style="font-size: 12px"
+                        ><span>% da cart.</span><br /><span
+                          class="fw-bold"
+                          style="color: #94dccc"
+                          >{{ product.position.percentageOverIndexer }}</span
+                        ></span
+                      >
+                      <span class="col-md-1 px-0" style="font-size: 12px"
+                        ><span>cdi</span><br /><span
+                          class="fw-bold"
+                          style="color: #94dccc"
+                          >{{ product.position.indexerValue }}</span
+                        ></span
+                      >
+                      <span class="col-md-2 px-0" style="font-size: 12px"
+                        ><span>Sobre cdi</span><br /><span
+                          class="fw-bold"
+                          style="color: #94dccc"
+                          >{{ product.position.equity }}</span
+                        ></span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card rounded">
+                  <div class="card-body">
+                    <p class="card-title d-flex align-items-center">
+                      <span style="font-size: 11px">Vencimento</span>
+                      <i
+                        class="material-icons"
+                        style="font-size: 18px; margin-left: 15px"
+                        >info_outline</i
+                      >
+                    </p>
+
+                    <div class="row">
+                      <span class="col-md-6" style="font-size: 12px"
+                        ><span>Data venc.</span><br /><span
+                          class="fw-bold"
+                          style="color: #33a3d5"
+                          >{{ product.due.date }}</span
+                        ></span
+                      >
+                      <span class="col-md-6 px-0" style="font-size: 12px"
+                        ><span>Dias até venc.</span><br /><span
+                          class="fw-bold"
+                          style="color: #33a3d5"
+                          >{{ product.due.daysUntilExpiration }}</span
+                        ></span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center mt-3">
+            <nav aria-label="Page navigation">
+              <ul class="pagination">
+                <li
+                  class="page-item"
+                  [ngClass]="{ disabled: currentPage === 1 }"
+                >
+                  <button
+                    class="page-link"
+                    (click)="onPageChange(1)"
+                    aria-label="Primeira"
+                  >
+                    <span aria-hidden="true">&laquo;&laquo;</span>
+                    <span class="sr-only">Primeira</span>
+                  </button>
+                </li>
+                <li
+                  class="page-item"
+                  [ngClass]="{ disabled: currentPage === 1 }"
+                >
+                  <button
+                    class="page-link"
+                    (click)="onPageChange(currentPage - 1)"
+                    aria-label="Anterior"
+                  >
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Anterior</span>
+                  </button>
+                </li>
+                <li
+                  class="page-item"
+                  *ngFor="let page of pages"
+                  [ngClass]="{ active: page === currentPage }"
+                >
+                  <button class="page-link" (click)="onPageChange(page)">
+                    {{ page }}
+                  </button>
+                </li>
+                <li
+                  class="page-item"
+                  [ngClass]="{ disabled: currentPage === totalPages }"
+                >
+                  <button
+                    class="page-link"
+                    (click)="onPageChange(currentPage + 1)"
+                    aria-label="Próxima"
+                  >
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Próxima</span>
+                  </button>
+                </li>
+                <li
+                  class="page-item"
+                  [ngClass]="{ disabled: currentPage === totalPages }"
+                >
+                  <button
+                    class="page-link"
+                    (click)="onPageChange(totalPages)"
+                    aria-label="Última"
+                  >
+                    <span aria-hidden="true">&raquo;&raquo;</span>
+                    <span class="sr-only">Última</span>
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Divisão de Carteira por Tipo</h5>
+                <div
+                  style="
+                    height: 300px;
+                    background-color: lightgray;
+                    border-radius: 10px;
+                  "
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Divisão de Carteira por Titulo</h5>
+                <div
+                  style="
+                    height: 300px;
+                    background-color: lightgray;
+                    border-radius: 10px;
+                  "
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,968 @@
+<nav
+  class="col-md-12 col-lg-12 d-md-block bg-light sidebar page-background-sidebar mt-2 h-100"
+>
+  <div class="position-sticky">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#"
+          (click)="toggleDropdown(1)"
+          style="display: flex; align-items: center"
+        >
+          <div
+            style="
+              width: 36px;
+              height: 36px;
+              background-color: #ccc;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+            [ngClass]="{
+              'text-primary': isDropdownOpen(1),
+              'text-secondary': !isDropdownOpen(1)
+            }"
+          >
+            <i class="fas fa-circle-notch" style="color: white"></i>
+          </div>
+          <div style="margin-left: 8px">
+            <span class="px-0" style="color: #777">Resumo</span>
+            <p
+              class="px-0"
+              style="margin-top: -5px; margin-bottom: 0; color: #777"
+            >
+              da Carteira
+            </p>
+          </div>
+          <div
+            style="
+              margin-left: auto;
+              width: 36px;
+              height: 36px;
+              background-color: #ccc;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+          >
+            <i
+              class="fas fa-chevron-right"
+              style="
+                width: 36px;
+                height: 36px;
+                background-color: #fff;
+                color: #777;
+                border-radius: 0%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+              *ngIf="!isDropdownOpen(1)"
+            ></i>
+            <i
+              class="fas fa-chevron-right"
+              style="
+                width: 36px;
+                height: 36px;
+                background-color: #fff;
+                color: #4c309b;
+                border-radius: 0%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+              class="fas fa-chevron-down"
+              *ngIf="isDropdownOpen(1)"
+            ></i>
+          </div>
+        </a>
+
+        <ul *ngIf="isDropdownOpen(1)" class="nav flex-column ml-3">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777">Ação</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777">Fundo</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777"
+                >Fundo Imobiliário</span
+              >
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777"
+                >Fundo Renda Fixa</span
+              >
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#"
+          (click)="toggleDropdown(2)"
+          style="display: flex; align-items: center"
+        >
+          <div
+            style="
+              width: 36px;
+              height: 36px;
+              background-color: #ccc;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+            [ngClass]="{
+              'text-primary': isDropdownOpen(2),
+              'text-secondary': !isDropdownOpen(2)
+            }"
+          >
+            <i class="fas fa-chart-pie" style="color: white"></i>
+          </div>
+          <div style="margin-left: 8px">
+            <span class="px-0" style="color: #777">Meus</span>
+            <p
+              class="px-0"
+              style="margin-top: -5px; margin-bottom: 0; color: #777"
+            >
+              Produtos
+            </p>
+          </div>
+          <div
+            style="
+              margin-left: auto;
+              width: 36px;
+              height: 36px;
+              background-color: #ccc;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+          >
+            <i
+              class="fas fa-chevron-right"
+              style="
+                width: 36px;
+                height: 36px;
+                background-color: #fff;
+                color: #777;
+                border-radius: 0%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+              *ngIf="!isDropdownOpen(1)"
+            ></i>
+            <i
+              class="fas fa-chevron-right"
+              style="
+                width: 36px;
+                height: 36px;
+                background-color: #fff;
+                color: #4c309b;
+                border-radius: 0%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+              class="fas fa-chevron-down"
+              *ngIf="isDropdownOpen(1)"
+            ></i>
+          </div>
+        </a>
+
+        <ul *ngIf="isDropdownOpen(2)" class="nav flex-column ml-3">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777">Ação</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777">Fundo</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777"
+                >Fundo Imobiliário</span
+              >
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777"
+                >Fundo Renda Fixa</span
+              >
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#"
+          (click)="toggleDropdown(3)"
+          style="display: flex; align-items: center"
+        >
+          <div
+            style="
+              width: 36px;
+              height: 36px;
+              background-color: #ccc;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+            [ngClass]="{
+              'text-primary': isDropdownOpen(3),
+              'text-secondary': !isDropdownOpen(3)
+            }"
+          >
+            <i class="fas fa-s" style="color: white"></i>
+          </div>
+          <div style="margin-left: 8px">
+            <span class="px-0" style="color: #777">Meus</span>
+            <p
+              class="px-0"
+              style="margin-top: -5px; margin-bottom: 0; color: #777"
+            >
+              Proventos
+            </p>
+          </div>
+          <div
+            style="
+              margin-left: auto;
+              width: 36px;
+              height: 36px;
+              background-color: #ccc;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+          >
+            <i
+              class="fas fa-chevron-right"
+              style="
+                width: 36px;
+                height: 36px;
+                background-color: #fff;
+                color: #777;
+                border-radius: 0%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+              *ngIf="!isDropdownOpen(1)"
+            ></i>
+            <i
+              class="fas fa-chevron-right"
+              style="
+                width: 36px;
+                height: 36px;
+                background-color: #fff;
+                color: #4c309b;
+                border-radius: 0%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+              class="fas fa-chevron-down"
+              *ngIf="isDropdownOpen(1)"
+            ></i>
+          </div>
+        </a>
+
+        <ul *ngIf="isDropdownOpen(3)" class="nav flex-column ml-3">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777">Ação</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777">Fundo</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777"
+                >Fundo Imobiliário</span
+              >
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777"
+                >Fundo Renda Fixa</span
+              >
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#"
+          (click)="toggleDropdown(4)"
+          style="display: flex; align-items: center"
+        >
+          <div
+            style="
+              width: 36px;
+              height: 36px;
+              background-color: #ccc;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+            [ngClass]="{
+              'text-primary': isDropdownOpen(4),
+              'text-secondary': !isDropdownOpen(4)
+            }"
+          >
+            <i class="fas fa-dumbbell" style="color: white"></i>
+          </div>
+          <div style="margin-left: 8px">
+            <span class="px-0" style="color: #777">Classe</span>
+            <p
+              class="px-0"
+              style="margin-top: -5px; margin-bottom: 0; color: #777"
+            >
+              de Ativos
+            </p>
+          </div>
+          <div
+            style="
+              margin-left: auto;
+              width: 36px;
+              height: 36px;
+              background-color: #ccc;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+          >
+            <i
+              class="fas fa-chevron-right"
+              style="
+                width: 36px;
+                height: 36px;
+                background-color: #fff;
+                color: #777;
+                border-radius: 0%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+              *ngIf="!isDropdownOpen(1)"
+            ></i>
+            <i
+              class="fas fa-chevron-right"
+              style="
+                width: 36px;
+                height: 36px;
+                background-color: #fff;
+                color: #4c309b;
+                border-radius: 0%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+              class="fas fa-chevron-down"
+              *ngIf="isDropdownOpen(1)"
+            ></i>
+          </div>
+        </a>
+
+        <ul *ngIf="isDropdownOpen(4)" class="nav flex-column ml-3">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777">Ação</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777">Fundo</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777"
+                >Fundo Imobiliário</span
+              >
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777"
+                >Fundo Renda Fixa</span
+              >
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#"
+          (click)="toggleDropdown(5)"
+          style="display: flex; align-items: center"
+        >
+          <div
+            style="
+              width: 36px;
+              height: 36px;
+              background-color: #ccc;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+            [ngClass]="{
+              'text-primary': isDropdownOpen(5),
+              'text-secondary': !isDropdownOpen(5)
+            }"
+          >
+            <i class="fas fa-gem" style="color: white"></i>
+          </div>
+          <div style="margin-left: 8px">
+            <span class="px-0" style="color: #777">Rentabilidade</span>
+            <p
+              class="px-0"
+              style="margin-top: -5px; margin-bottom: 0; color: #777"
+            >
+              Real
+            </p>
+          </div>
+          <div
+            style="
+              margin-left: auto;
+              width: 36px;
+              height: 36px;
+              background-color: #ccc;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+          >
+            <i
+              class="fas fa-chevron-right"
+              style="
+                width: 36px;
+                height: 36px;
+                background-color: #fff;
+                color: #777;
+                border-radius: 0%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+              *ngIf="!isDropdownOpen(1)"
+            ></i>
+            <i
+              class="fas fa-chevron-right"
+              style="
+                width: 36px;
+                height: 36px;
+                background-color: #fff;
+                color: #4c309b;
+                border-radius: 0%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+              class="fas fa-chevron-down"
+              *ngIf="isDropdownOpen(1)"
+            ></i>
+          </div>
+        </a>
+
+        <ul *ngIf="isDropdownOpen(5)" class="nav flex-column ml-3">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777">Ação</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777">Fundo</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777"
+                >Fundo Imobiliário</span
+              >
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777"
+                >Fundo Renda Fixa</span
+              >
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#"
+          (click)="toggleDropdown(6)"
+          style="display: flex; align-items: center"
+        >
+          <div
+            style="
+              width: 36px;
+              height: 36px;
+              background-color: #ccc;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+            [ngClass]="{
+              'text-primary': isDropdownOpen(6),
+              'text-secondary': !isDropdownOpen(6)
+            }"
+          >
+            <i class="fa fa-tv" style="color: white"></i>
+          </div>
+          <div style="margin-left: 8px">
+            <span class="px-0" style="color: #777">Projeção</span>
+            <p
+              class="px-0"
+              style="margin-top: -5px; margin-bottom: 0; color: #777"
+            >
+              da Carteira
+            </p>
+          </div>
+          <div
+            style="
+              margin-left: auto;
+              width: 36px;
+              height: 36px;
+              background-color: #ccc;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+          >
+            <i
+              class="fas fa-chevron-right"
+              style="
+                width: 36px;
+                height: 36px;
+                background-color: #fff;
+                color: #777;
+                border-radius: 0%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+              *ngIf="!isDropdownOpen(1)"
+            ></i>
+            <i
+              class="fas fa-chevron-right"
+              style="
+                width: 36px;
+                height: 36px;
+                background-color: #fff;
+                color: #4c309b;
+                border-radius: 0%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+              class="fas fa-chevron-down"
+              *ngIf="isDropdownOpen(1)"
+            ></i>
+          </div>
+        </a>
+
+        <ul *ngIf="isDropdownOpen(6)" class="nav flex-column ml-3">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777">Ação</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777">Fundo</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777"
+                >Fundo Imobiliário</span
+              >
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777"
+                >Fundo Renda Fixa</span
+              >
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#"
+          (click)="toggleDropdown(7)"
+          style="display: flex; align-items: center"
+        >
+          <div
+            style="
+              width: 36px;
+              height: 36px;
+              background-color: #ccc;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+            [ngClass]="{
+              'text-primary': isDropdownOpen(7),
+              'text-secondary': !isDropdownOpen(7)
+            }"
+          >
+            <i class="far fa-dot-circle" style="color: white"></i>
+          </div>
+          <div style="margin-left: 8px">
+            <span class="px-0" style="color: #777">Risco x</span>
+            <p
+              class="px-0"
+              style="margin-top: -5px; margin-bottom: 0; color: #777"
+            >
+              Retorno
+            </p>
+          </div>
+          <div
+            style="
+              margin-left: auto;
+              width: 36px;
+              height: 36px;
+              background-color: #ccc;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+          >
+            <i
+              class="fas fa-chevron-right"
+              style="
+                width: 36px;
+                height: 36px;
+                background-color: #fff;
+                color: #777;
+                border-radius: 0%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+              *ngIf="!isDropdownOpen(1)"
+            ></i>
+            <i
+              class="fas fa-chevron-right"
+              style="
+                width: 36px;
+                height: 36px;
+                background-color: #fff;
+                color: #4c309b;
+                border-radius: 0%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+              class="fas fa-chevron-down"
+              *ngIf="isDropdownOpen(1)"
+            ></i>
+          </div>
+        </a>
+
+        <ul *ngIf="isDropdownOpen(7)" class="nav flex-column ml-3">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777">Ação</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777">Fundo</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777"
+                >Fundo Imobiliário</span
+              >
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777"
+                >Fundo Renda Fixa</span
+              >
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          href="#"
+          (click)="toggleDropdown(8)"
+          style="display: flex; align-items: center"
+        >
+          <div
+            style="
+              width: 36px;
+              height: 36px;
+              background-color: #ccc;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+            [ngClass]="{
+              'text-primary': isDropdownOpen(8),
+              'text-secondary': !isDropdownOpen(8)
+            }"
+          >
+            <i class="fas fa-lock" style="color: white"></i>
+          </div>
+          <div style="margin-left: 8px">
+            <span class="px-0" style="color: #777">Cobertura</span>
+            <p
+              class="px-0"
+              style="margin-top: -5px; margin-bottom: 0; color: #777"
+            >
+              do FGC
+            </p>
+          </div>
+          <div
+            style="
+              margin-left: auto;
+              width: 36px;
+              height: 36px;
+              background-color: #ccc;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+          >
+            <i
+              class="fas fa-chevron-right"
+              style="
+                width: 36px;
+                height: 36px;
+                background-color: #fff;
+                color: #777;
+                border-radius: 0%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+              *ngIf="!isDropdownOpen(1)"
+            ></i>
+            <i
+              class="fas fa-chevron-right"
+              style="
+                width: 36px;
+                height: 36px;
+                background-color: #fff;
+                color: #4c309b;
+                border-radius: 0%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+              class="fas fa-chevron-down"
+              *ngIf="isDropdownOpen(1)"
+            ></i>
+          </div>
+        </a>
+
+        <ul *ngIf="isDropdownOpen(8)" class="nav flex-column ml-3">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777">Ação</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777">Fundo</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777"
+                >Fundo Imobiliário</span
+              >
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i
+                class="fas fa-circle"
+                style="font-size: 7px; margin-left: 8px; color: #4c309b"
+              ></i>
+              <span style="margin-left: 8px; color: #777"
+                >Fundo Renda Fixa</span
+              >
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
