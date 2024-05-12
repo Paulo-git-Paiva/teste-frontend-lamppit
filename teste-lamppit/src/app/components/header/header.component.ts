@@ -12,8 +12,8 @@ interface ApiResponse {
     indexerValue: number;
     percentageOverIndexer: number;
   };
-  dailyEquityByPortfolioChartData: any[]; // Defina a estrutura correta conforme necessário
-  snapshotByProduct: any[]; // Defina a estrutura correta conforme necessário
+  dailyEquityByPortfolioChartData: any[];
+  snapshotByProduct: any[];
 }
 
 @Component({
