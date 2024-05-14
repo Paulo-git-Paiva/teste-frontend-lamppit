@@ -7,7 +7,7 @@
 3. Caso tenha problemas pode conferir a documentação dos mesmos logo abaixo;
 
 ### Links das Documentações:
-###Tecnologias utilizadas
+#### Tecnologias utilizadas
 - ng-bootstrap: https://ng-bootstrap.github.io/#/home
 - Bootstrap: https://getbootstrap.com/docs/5.3/getting-started/introduction/
 - Angular: https://angular.io/docs
