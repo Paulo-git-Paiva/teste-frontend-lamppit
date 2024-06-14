@@ -86,8 +86,6 @@ export class BodyComponent implements OnInit {
   getApiData(): void {
     this.myApiService.getFixedIncomeClassData().subscribe((data) => {
       this.dataFromAPI = data.data;
-      console.log(this.dataFromAPI);
-      console.log('acesso', this.dataFromAPI?.snapshotByPortfolio);
       this.totalItems = this.dataFromAPI?.snapshotByProduct.length || 0;
       this.totalPages = Math.ceil(this.totalItems / this.pageSize);
       this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);

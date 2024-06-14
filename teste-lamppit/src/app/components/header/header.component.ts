@@ -35,8 +35,6 @@ export class HeaderComponent implements OnInit {
   getApiData(): void {
     this.myApiService.getFixedIncomeClassData().subscribe((data) => {
       this.dataFromAPI = data.data;
-      console.log(this.dataFromAPI);
-      console.log('acesso', this.dataFromAPI?.snapshotByPortfolio);
     });
   }
 }
