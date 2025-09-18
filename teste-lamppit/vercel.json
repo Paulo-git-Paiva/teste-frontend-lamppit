@@ -1,0 +1,7 @@
+{
+  "builds": [
+    { "src": "dist/teste-lamppit/server/server.mjs", "use": "@vercel/node" },
+    { "src": "dist/teste-lamppit/browser/**", "use": "@vercel/static" }
+  ],
+  "routes": [{ "src": "/.*", "dest": "dist/teste-lamppit/server/server.mjs" }]
+}
